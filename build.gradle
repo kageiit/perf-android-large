@@ -70,7 +70,7 @@ def addCommonConfigurationForAndroidModules(Project project) {
         lintOptions {
             abortOnError false
             // To avoid linting which requires gigantic amounts of heap
-            checkReleaseBuilds false
+            //checkReleaseBuilds false
         }
     }
 }
