@@ -5,7 +5,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.2'
+        classpath 'com.android.tools.build:gradle:2.2.0-alpha4'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         classpath 'net.ltgt.gradle:gradle-apt-plugin:0.6'
     }
@@ -14,6 +14,13 @@ buildscript {
 allprojects {
     project -> project.apply from: rootProject.file('dependencies.gradle') 
     repositories { jcenter() }
+    // to avoid duplicate class errors
+    configurations.all { 
+        exclude group: "com.amazonaws" 
+        exclude module: "javax.annotation"
+        exclude module: "support-annotations"
+        exclude module: "annotations"
+    }
 }
 
 subprojects { project ->
@@ -62,6 +69,8 @@ def addCommonConfigurationForAndroidModules(Project project) {
 
         lintOptions {
             abortOnError false
+            // To avoid linting which requires gigantic amounts of heap
+            checkReleaseBuilds false
         }
     }
 }

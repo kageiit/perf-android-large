@@ -6,17 +6,23 @@ def roasterVersion = '2.18.7.Final'
 
 def build = [
         compileSdkVersion: 24,
-        minSdkVersion    : 15,
+        minSdkVersion    : 17,
         targetSdkVersion : 24,
         buildToolsVersion: '24.0.0',
 ]
+
+// This is so we can get a compatible version of
+// the MaterialDesign library
+repositories {
+    maven { url "https://jitpack.io" }
+}
 
 def support = [
         annotations : "com.android.support:support-annotations:$supportVersion",
         appCompat   : "com.android.support:appcompat-v7:$supportVersion",
         cardView    : "com.android.support:cardview-v7:$supportVersion",
         design      : "com.android.support:design:$supportVersion",
-        recyclerView: "com.android.support:recyclerview-v7:$supportVersion",
+        recyclerView: "com.android.support:recyclerview-v7:0.4.0",
         v4          : "com.android.support:support-v4:$supportVersion",
         multidex    : 'com.android.support:multidex:1.0.1'
 ]
@@ -103,7 +109,7 @@ def other = [
         reflections          : 'org.reflections:reflections:0.9.10',
         facebook             : 'com.facebook.android:facebook-android-sdk:4.14.0',
         utils                : 'net.the4thdimension:android-utils:2.0.4',
-        materialDesign       : 'com.github.navasmdc:MaterialDesign:1.5@aar',
+        materialDesign       : 'com.github.vajro:MaterialDesignLibrary:1.6@aar',
         blockcanary          : 'com.github.moduth:blockcanary-android:1.2.1',
         javautil             : 'com.cedarsoftware:java-util:1.24.0',
 ]
