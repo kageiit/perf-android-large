@@ -14,7 +14,7 @@ def build = [
 // This is so we can get a compatible version of
 // the MaterialDesign library
 repositories {
-    maven { url "https://jitpack.io" }
+    flatDir { dirs rootProject.file('libs') }
 }
 
 def support = [
@@ -109,7 +109,7 @@ def other = [
         reflections          : 'org.reflections:reflections:0.9.10',
         facebook             : 'com.facebook.android:facebook-android-sdk:4.14.0',
         utils                : 'net.the4thdimension:android-utils:2.0.4',
-        materialDesign       : 'com.github.vajro:MaterialDesignLibrary:1.6@aar',
+        materialDesign       : ":MaterialDesignLibrary:1.6@aar",
         blockcanary          : 'com.github.moduth:blockcanary-android:1.2.1',
         javautil             : 'com.cedarsoftware:java-util:1.24.0',
 ]
