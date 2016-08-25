@@ -20,6 +20,7 @@ allprojects {
         exclude module: "javax.annotation"
         exclude module: "support-annotations"
         exclude module: "annotations"
+        resolutionStrategy.force deps.support.cardView
     }
 }
 
