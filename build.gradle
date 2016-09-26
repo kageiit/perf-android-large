@@ -5,7 +5,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.0-beta2'
+        classpath 'com.android.tools.build:gradle:2.2.0'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         classpath 'net.ltgt.gradle:gradle-apt-plugin:0.6'
     }
@@ -72,6 +72,11 @@ def addCommonConfigurationForAndroidModules(Project project) {
             abortOnError false
             // To avoid linting which requires gigantic amounts of heap
             //checkReleaseBuilds false
+        }
+        
+        packagingOptions {
+            pickFirst  'META-INF/license.txt'
+            pickFirst  'META-INF/LICENSE'
         }
     }
 }
