@@ -20,3 +20,23 @@ dependencies {
 
     testCompile project(':aj:ab')
 }
+
+   repositories {
+       maven { url 'http://wordpress-mobile.github.io/WordPress-Android' }
+   }
+
+   dependencies {
+       compile deps.support.cardView
+       compile deps.support.design
+       compile deps.support.multidex
+       compile deps.other.rest
+       compile deps.other.greenrobot
+       compile deps.other.commonslang
+       compile deps.other.gcm
+       compile deps.external.gson
+   }
+
+   android {
+       useLibrary 'org.apache.http.legacy'
+   }
+      
