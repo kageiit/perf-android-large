@@ -1,6 +1,10 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.neenbedankt.android-apt'
 
+repositories {
+    maven { url 'http://wordpress-mobile.github.io/WordPress-Android' }
+}
+
 dependencies {
     apt project(':di:de')
     apt project(':di:dc')
@@ -11,8 +15,18 @@ dependencies {
     compile project(':ze')
     compile project(':v');
     compile deps.support.design
+    compile deps.support.multidex
+    compile deps.other.rest
+    compile deps.other.greenrobot
+    compile deps.other.commonslang
+    compile deps.other.gcm
+    compile deps.external.gson
 
     testCompile deps.test.robolectric
     testCompile project(':aj:ab')
     testCompile project(':di:dg')
+}
+
+android {
+    useLibrary 'org.apache.http.legacy'
 }

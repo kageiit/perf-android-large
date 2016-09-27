@@ -112,6 +112,13 @@ def other = [
         materialDesign       : ":MaterialDesignLibrary:1.6@aar",
         blockcanary          : 'com.github.moduth:blockcanary-android:1.2.1',
         javautil             : 'com.cedarsoftware:java-util:1.24.0',
+
+        // added after manually integrating wordpress sources
+        volley               : 'com.android.volley:volley:1.0.0',
+        rest                 : 'com.automattic:rest:1.0.7',
+        greenrobot           : 'de.greenrobot:eventbus:2.4.0',
+        commonslang          : 'commons-lang:commons-lang:2.6',
+        gcm                  : 'com.google.android.gms:play-services-gcm:9.0.2'
 ]
 
 ext.deps = [
