@@ -8,8 +8,10 @@ buildscript {
         classpath 'com.android.tools.build:gradle:2.2.0'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         classpath 'net.ltgt.gradle:gradle-apt-plugin:0.6'
+        classpath 'com.uber:okbuck:0.7.0'
     }
 }
+apply plugin: "com.uber.okbuck"
 
 allprojects {
     project -> project.apply from: rootProject.file('dependencies.gradle') 
@@ -42,6 +44,27 @@ subprojects { project ->
         } else if (project.plugins.hasPlugin('com.android.application')
                 || project.plugins.hasPlugin('com.android.library')) {
             addCommonConfigurationForAndroidModules(project)
+        }
+
+        if (project.plugins.hasPlugin('com.android.application')) {
+            project.android{
+                signingConfigs {
+                    debug {
+                        storeFile file('config/signing/debug.keystore')
+                    }
+                }
+                buildTypes {
+                    release {
+                        signingConfig signingConfigs.debug
+                    }
+                }
+                packagingOptions {
+                    exclude 'META-INF/LICENSE'
+                }
+                dexOptions {
+                    javaMaxHeapSize "4g"
+                }
+            }
         }
     }
 }

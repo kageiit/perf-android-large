@@ -11,12 +11,6 @@ def build = [
         buildToolsVersion: '24.0.0',
 ]
 
-// This is so we can get a compatible version of
-// the MaterialDesign library
-repositories {
-    flatDir { dirs rootProject.file('libs') }
-}
-
 def support = [
         annotations : "com.android.support:support-annotations:$supportVersion",
         appCompat   : "com.android.support:appcompat-v7:$supportVersion",
@@ -109,7 +103,7 @@ def other = [
         reflections          : 'org.reflections:reflections:0.9.10',
         facebook             : 'com.facebook.android:facebook-android-sdk:4.14.0',
         utils                : 'net.the4thdimension:android-utils:2.0.4',
-        materialDesign       : ":MaterialDesignLibrary:1.6@aar",
+        materialDesign       : 'com.lovedise:permissiongen:0.0.6',
         blockcanary          : 'com.github.moduth:blockcanary-android:1.2.1',
         javautil             : 'com.cedarsoftware:java-util:1.24.0',
 
